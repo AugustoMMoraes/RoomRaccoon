@@ -22,10 +22,10 @@
             <tbody>
             <?php foreach ($itemsList as $item): ?>
                 <tr>
-                    <td><?php echo $item['name']; ?></td>
-                    <td><?php echo $item['price']; ?></td>
-                    <td><?php echo $item['description']; ?></td>
-                    <td><?php echo $item['is_checked'] ? 'Yes' : 'No'; ?></td>
+                    <td><?php echo escape($item['name']); ?></td>
+                    <td><?php echo escape($item['price']); ?></td>
+                    <td><?php echo escape($item['description']); ?></td>
+                    <td><?php echo escape($item['is_checked']) ? 'Yes' : 'No'; ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
@@ -45,10 +45,10 @@
             <tbody>
             <?php foreach ($itemsList2 as $item): ?>
                 <tr>
-                    <td><?php echo $item['name']; ?></td>
-                    <td><?php echo $item['price']; ?></td>
-                    <td><?php echo $item['description']; ?></td>
-                    <td><?php echo $item['is_checked'] ? 'Yes' : 'No'; ?></td>
+                    <td><?php echo escape($item['name']); ?></td>
+                    <td><?php echo escape($item['price']); ?></td>
+                    <td><?php echo escape($item['description']); ?></td>
+                    <td><?php echo escape($item['is_checked']) ? 'Yes' : 'No'; ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
@@ -68,10 +68,10 @@
             <tbody>
             <?php foreach ($itemsList3 as $item): ?>
                 <tr>
-                    <td><?php echo $item['name']; ?></td>
-                    <td><?php echo $item['price']; ?></td>
-                    <td><?php echo $item['description']; ?></td>
-                    <td><?php echo $item['is_checked'] ? 'Yes' : 'No'; ?></td>
+                    <td><?php echo escape($item['name']); ?></td>
+                    <td><?php echo escape($item['price']); ?></td>
+                    <td><?php echo escape($item['description']); ?></td>
+                    <td><?php echo escape($item['is_checked']) ? 'Yes' : 'No'; ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>

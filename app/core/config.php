@@ -2,8 +2,8 @@
 
 define('DBNAME', 'roomraccoon');
 define('DBHOST', 'localhost');
-define('DBUSER', 'YOURUSER');
-define('DBPASS', 'YOURPASSWORD');
+define('DBUSER', 'root');
+define('DBPASS', '');
 define('APP_NAME', "RoomRaccoon");
 define('APP_DESC', "Assessment Test");
 
