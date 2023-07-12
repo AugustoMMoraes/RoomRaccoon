@@ -2,10 +2,9 @@
 
 define('DBNAME', 'roomraccoon');
 define('DBHOST', 'localhost');
-define('DBUSER', 'root');
-define('DBPASS', '');
-define('ROOT', 'http://localhost/mvc/public');
-define('APP_NAME', "RoomRaccoon ");
+define('DBUSER', 'YOURUSER');
+define('DBPASS', 'YOURPASSWORD');
+define('APP_NAME', "RoomRaccoon");
 define('APP_DESC', "Assessment Test");
 
 /** showing errors = true **/
