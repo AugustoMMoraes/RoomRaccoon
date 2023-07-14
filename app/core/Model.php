@@ -1,8 +1,4 @@
 <?php 
-
-/**
- * Main Model trait
- */
 Trait Model
 {
 	use Database;
@@ -13,7 +9,7 @@ Trait Model
     public function __construct()
     {
         try {
-            $this->pdo = Database::connect();
+			$this->pdo = self::connect();
         } catch (PDOException $e) {
             die('Database connection failed: ' . $e->getMessage());
         }

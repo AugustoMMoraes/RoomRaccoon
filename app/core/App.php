@@ -3,12 +3,13 @@
 
 class App
 {
-	private $controller = 'ShoppingController';
-	private $method 	= 'index';
+	protected $controller = 'Dashboard';
+	protected $method 	= 'index';
+	protected $params = [];
 
 	private function splitURL()
 	{
-		$URL = $_GET['url'] ?? 'ShoppingController';
+		$URL = $_GET['url'] ?? 'dashboard';
 		$URL = explode("/", trim($URL,"/"));
 		return $URL;	
 	}
@@ -17,7 +18,6 @@ class App
 	{
 		$URL = $this->splitURL();
 
-		/** select controller or goes to _404**/
 		$filename = "../app/controllers/".ucfirst($URL[0]).".php";
 		if(file_exists($filename))
 		{
@@ -42,7 +42,9 @@ class App
 			}	
 		}
 
-		call_user_func_array([$controller,$this->method], $URL);
+		$this->params = array_values($URL);
+
+		call_user_func_array([$controller, $this->method], $this->params);
 
 	}	
 

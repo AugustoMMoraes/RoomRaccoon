@@ -1,10 +1,10 @@
 <?php 
 
-class Shopping
+class ShoppingModel
 {
-  use Model;
+  use \Model;
 
-  protected $table = __CLASS__;
+  protected $table = 'shopping';
 
   /** allow only data from defined array to be manipulated **/
   protected $allowedColumns = [
@@ -40,6 +40,14 @@ class Shopping
       $this->prepare($query);
       return $this->execute();
   }
+
+  public function selectItemById($id): array
+  {
+      $query = "SELECT id,name,price,description,is_checked,created_at,deleted_at FROM {$this->table} WHERE id = :id";
+
+      $this->prepare($query);
+      return $this->execute(['id' => $id], PDO::FETCH_OBJ);
+  }
   
   public function delete(int $id): bool
   {
@@ -50,7 +58,6 @@ class Shopping
 
   public function update(array $data, int $id): bool
 {
-    /** Add validation: $id must be equal to $data['id'] */
     $updateParams = [];
     $data = array_intersect_key($data, array_flip($this->allowedColumns));
     
@@ -69,6 +76,5 @@ class Shopping
     $this->prepare($query);
     return $this->execute($data) !== false;
 }
-
 
 }

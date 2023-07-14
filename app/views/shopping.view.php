@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Shopping List</title>
-	<link rel="stylesheet" href="assets/css/raccoon.css">
-</head>
-<body>
+<?php 
+$this->buildView('includes/header');
+$this->buildView('includes/navbar'); ?>
+
+<link rel="stylesheet" href="assets/css/raccoon.css">
+
 <div class="container">
+  <h2 class="table-title">Shopping - Item List</h2>
+  <button class="btn-view floatright fas fa-plus">Item</button>
     <div class="table-container">
-        <h2 class="table-title">Table - Insert</h2>
         <table>
             <thead>
             <tr>
@@ -17,68 +15,39 @@
                 <th>Price</th>
                 <th>Description</th>
                 <th>Checked</th>
+				<th>Actions</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($itemsList as $item): ?>
-                <tr>
+                <tr data-id=<?php echo $item['id']; ?>>
                     <td><?php echo escape($item['name']); ?></td>
-                    <td><?php echo escape($item['price']); ?></td>
+                    <td><?php echo $item['price']; ?></td>
                     <td><?php echo escape($item['description']); ?></td>
-                    <td><?php echo escape($item['is_checked']) ? 'Yes' : 'No'; ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-    <div class="table-container">
-        <h2 class="table-title">Table - Update</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Description</th>
-                <th>Checked</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($itemsList2 as $item): ?>
-                <tr>
-                    <td><?php echo escape($item['name']); ?></td>
-                    <td><?php echo escape($item['price']); ?></td>
-                    <td><?php echo escape($item['description']); ?></td>
-                    <td><?php echo escape($item['is_checked']) ? 'Yes' : 'No'; ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-	<div class="table-container">
-        <h2 class="table-title">Table - Delete</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Description</th>
-                <th>Checked</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($itemsList3 as $item): ?>
-                <tr>
-                    <td><?php echo escape($item['name']); ?></td>
-                    <td><?php echo escape($item['price']); ?></td>
-                    <td><?php echo escape($item['description']); ?></td>
-                    <td><?php echo escape($item['is_checked']) ? 'Yes' : 'No'; ?></td>
+                    <td><?php echo $item['is_checked'] ? 'Yes' : 'No'; ?></td>
+					<td>
+						<div class="actions">
+                            <button class="btn-view fas fa-edit js-item-popup"></button>
+                            <button class="btn-delete fas fa-trash"></button>
+                        </div>
+					</td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
         </table>
     </div>
 </div>
-</body>
-</html>
 
+<!-- Popup Wrapper -->
+<div class="popup-wrapper" id="popupWrapper">
+  <div class="popup-content">
+    <button class="close-btn" onclick="closePopup()">&times;</button>
+    <iframe id="popupIframe" class="popupIframe" frameborder="0"></iframe>
+  </div>
+</div>
+
+
+<?php $this->buildView('includes/footer')?>
+
+<script type="text/javascript" src="assets/js/shopping.js"></script>
 

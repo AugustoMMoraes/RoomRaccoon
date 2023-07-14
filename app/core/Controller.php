@@ -3,10 +3,10 @@
 
 Trait Controller
 {
-
 	public function buildView($name, $data = [])
 	{
-		extract($data);
+		if(!empty($data))
+			extract($data);
 		
 		$filename = "../app/views/".$name.".view.php";
 		if(file_exists($filename))
