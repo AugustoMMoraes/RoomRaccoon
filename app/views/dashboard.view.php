@@ -1,6 +1,9 @@
 <?php 
 $this->buildView('includes/header');
-$this->buildView('includes/navbar'); ?>
+$this->buildView('includes/navbar'); 
+
+?>
+
 
 
 <div class="container">
@@ -18,8 +21,6 @@ $this->buildView('includes/navbar'); ?>
             <span class="icon">🌐</span> -> Domain Admin 'augustomoraes.com'<br>
             <span class="icon">🔐</span> -> SSL Certificate<br>
             <span class="icon">🛡️</span> -> Secure Login Functions (WIP)<br>
-            <span class="icon">🔁</span> -> RESTful API Development (WIP)<br>
-            <span class="icon">📱</span> -> Responsive UI Development (WIP)<br>
             <span class="icon">✅</span> -> Testing<br>
             <span class="icon">🚀</span> -> Deployment<br>
         </ul><br>

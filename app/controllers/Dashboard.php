@@ -14,10 +14,7 @@ class Dashboard
     
     public function index()
     {
-        $content = 'Nothing here yet';
-        $this->buildView('dashboard', [
-            'content' => $content
-        ]);
+        $this->buildView('dashboard');
 
     }
 

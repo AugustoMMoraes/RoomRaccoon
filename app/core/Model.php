@@ -4,7 +4,8 @@ Trait Model
 	use Database;
 
 	protected ?PDO $pdo = null;
-	public $errors = [];
+	protected ?PDOStatement $statement = null;
+	public $messages = [];
 
     public function __construct()
     {

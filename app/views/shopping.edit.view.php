@@ -1,49 +1,14 @@
-<!--leaving the style here for now, need to sort the Iframe loading 'shopping-item.css' -->
-<style>
-    .form-group {
-  margin-bottom: 5px;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type="number"],
-textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-input[type="checkbox"] {
-  margin-top: 5px;
-}
-
-button[type="submit"] {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-</style>
+<!DOCTYPE html>
+<link rel="stylesheet" href="<?php echo ROOT; ?>/assets/css/shopping-item.css">
+<?php include '../app/views/message.view.php'; ?>
 
 <h2>Edit Item</h2>
 <div class="form-container">
-  <form method="POST" action="shopping/edit">
+  <form method="POST" action="<?php echo ROOT; ?>/shopping/save">
     <input type="hidden" name="id" value="<?php echo $item[0]->id ?>">
-
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" name="name" id="name" value="<?php echo $item[0]->name ?>">
+      <input type="text" name="name" id="name" value="<?php echo escape($item[0]->name) ?>">
     </div>
 
     <div class="form-group">
@@ -53,19 +18,19 @@ button[type="submit"]:hover {
 
     <div class="form-group">
       <label for="description">Description:</label>
-      <textarea name="description" id="description"><?php echo $item[0]->description ?></textarea>
+      <textarea name="description" id="description"><?php echo escape($item[0]->description) ?></textarea>
     </div>
 
     <div class="form-group">
       <label for="is_checked">Is Checked:</label>
-      <input type="checkbox" name="is_checked" id="is_checked" <?php echo $item[0]->is_checked ? 'checked' : ''; ?> >
+      <input type="checkbox" name="is_checked" id="is_checked" <?php echo $item[0]->is_checked ? 'checked' : ''; ?>>
     </div>
 
     <div class="form-group">
       <label for="created_at">Created At:</label>
-      <input type="text" name="created_at" id="created_at" value="<?php echo $item[0]->created_at ?>" readonly>
+      <input type="text" name="created_at" id="created_at" value="<?php echo (new DateTime($item[0]->created_at))->format('d/m/Y H:i:s'); ?>" readonly disabled>
     </div>
 
-    <button type="submit">Save Changes</button>
+    <button type="submit" class="btn-primary">Save Changes</button>
   </form>
 </div>

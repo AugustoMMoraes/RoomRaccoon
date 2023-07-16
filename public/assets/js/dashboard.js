@@ -7,6 +7,9 @@ $(document).ready(function() {
 
   function setActiveMenu() {
     var currentUrl = window.location.href;
+    if (currentUrl.endsWith("/roomraccoon/")) {
+      currentUrl += "public/";
+    }
     $('.sidebar ul li a').each(function() {
       if ($(this).attr('href') === currentUrl) {
         $(this).addClass('active');
